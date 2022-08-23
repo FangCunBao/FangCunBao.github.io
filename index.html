@@ -19,14 +19,7 @@
         }
     </script>
  
-<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
- 
-<!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
-<!-- <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script> -->
- 
-<!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
-<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -76,7 +69,7 @@
                         <div class="card-content">
                             <div class="item-headline">
                                 <i class="fa fa-picture-o" aria-hidden="true"></i>
-                                <span>这里想放自己的照片，但是没有照片。先找点其他的图，什么时候有了，再放吧！</span>
+                                <span>这里想放自己的照片，但是暂时还没有照片。先找点其他的图养养眼，什么时候有了，再放吧！</span>
                             </div>
                             <div id="demo"  class="carousel slide" data-ride="carousel">
  
@@ -244,7 +237,35 @@
             </div>
         </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">提醒一下</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    图片加载可能有点慢哦...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">点我关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js -->
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap4 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!--    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
     <!-- <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
@@ -308,6 +329,10 @@
             };
         })(jQuery);
         $(function () {
+            $('#myModal').modal('show')
+            setInterval(function (){
+                $('#myModal').modal('hide')
+            }, 2000)
             $.fn.snow({
                 minSize: 5, /* 定义雪花最小尺寸 */
                 maxSize: 50,/* 定义雪花最大尺寸 */
